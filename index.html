@@ -163,8 +163,8 @@ const container = document.getElementById("train-container");
 
 for (let i = 1; i <= 50; i++) {
 
-  let f = String(i).padStart(2, "0"); // 01F 表示用
-let n = String(i).padStart(2, "0"); // ← ここを修正（車番用）
+  let f = String(i).padStart(2, "0"); // 01F表示用
+  let n = String(i).padStart(2, "0"); // ← 修正ポイント
 
   let html = `
   <div class="section-title">${f}F</div>
@@ -212,3 +212,4 @@ let n = String(i).padStart(2, "0"); // ← ここを修正（車番用）
 </body>
 
 </html>
+
