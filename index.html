@@ -76,56 +76,23 @@ body {
 /* ▼ パスカード */
 .pass-card {
   width: 260px;
-  height: 320px;
+  height: 120px; /* 画像無いので高さ縮小 */
   background: #fff;
   border-radius: 16px;
-  overflow: hidden;
   border: 2px solid #333;
   cursor: pointer;
   transition: transform 0.25s, box-shadow 0.25s;
-  position: relative;
-}
-
-.pass-card:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-}
-
-.pass-card img {
-  width: 100%;
-  height: 75%;
-  object-fit: cover;
-}
-
-.pass-title {
-  height: 25%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.pass-title {
   font-size: 20px;
   font-weight: bold;
 }
 
-/* ▼ 車両一覧（縦並び） */
-.train-list {
-  width: 95%;
-  max-width: 700px;
-  margin: 0 auto;
-  display: block;
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transform: translateY(20px);
-  transition: opacity 0.4s, transform 0.4s, max-height 0.4s;
-}
-
-.train-list.show {
-  opacity: 1;
-  max-height: 5000px;
-  transform: translateY(0);
-}
-
-/* ▼ 写真なしカード（タイトルのみ） */
+/* 車両カード */
 .train-card {
   width: 100%;
   background: #fff;
@@ -133,18 +100,12 @@ body {
   border: 2px solid #333;
   cursor: pointer;
   margin-bottom: 20px;
-  padding: 20px 0;
+  padding: 18px;
   transition: transform 0.25s, box-shadow 0.25s;
 }
 
-.train-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-}
-
-/* ▼ タイトル（中央寄せ） */
 .train-title {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
   text-align: center;
 }
@@ -805,6 +766,7 @@ function loadPage(url) {
 
 </body>
 </html>
+
 
 
 
