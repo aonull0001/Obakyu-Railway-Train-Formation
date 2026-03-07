@@ -104,7 +104,7 @@ h1 {
 }
 
 .train-list-collapsible.open {
-  max-height: 5000px;
+  max-height: 99999px; /* ← 無制限にして全編成表示OK */
   opacity: 1;
   transform: translateY(0);
 }
@@ -240,12 +240,14 @@ h1 {
 
 <div class="direction">←尾羽原　　高徳→</div>
 
-<!-- ▼ ここにボタンと隠し領域 -->
-<div id="show-all-btn" class="show-all-btn">▼ 全編成を表示</div>
-<div id="train-list" class="train-list-collapsible"></div>
-
-<!-- ▼ 01F を入れる場所 -->
+<!-- ▼ 01F（最初に表示） -->
 <div id="train-container"></div>
+
+<!-- ▼ 全編成ボタン -->
+<div id="show-all-btn" class="show-all-btn">▼ 全編成を表示</div>
+
+<!-- ▼ 02F〜50F の隠し領域 -->
+<div id="train-list" class="train-list-collapsible"></div>
 
 <script>
 // ▼ 主要諸元の開閉
@@ -326,3 +328,4 @@ btn.addEventListener("click", () => {
 
 </body>
 </html>
+
