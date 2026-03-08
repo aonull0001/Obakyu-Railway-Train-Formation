@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>7070系 編成一覧</title>
+
+<style>
+body {
+  font-family: Zen Maru Gothic;
+  background: #f0f0f0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 32px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.direction {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.section-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  border-left: 6px solid #333;
+  padding-left: 10px;
+}
+
+/* ▼ ボックス */
+.spec-box {
+  background: #fff;
+  border: 2px solid #333;
+  padding: 15px;
+  width: 350px;
+  margin: 0 auto 30px auto;
+  border-radius: 6px;
+}
+
+.spec-box ul {
+  list-style: none;
+  padding-left: 5px;
+}
+
+.spec-box ul li::before {
+  content: "> ";
+  font-weight: bold;
+  color: #333;
+}
+
+/* ▼ 編成図 */
+.train {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.car {
+  width: 120px;
+  height: 140px;
+  border: 2px solid #333;
+  border-radius: 6px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.car-top {
+  height: 25px;
+  position: relative;
+}
+
+.panta {
+  width: 25px;
+  height: 10px;
+  background: #bbb;
+  position: absolute;
+  right: 6px;
+  top: 6px;
+}
+
+.car-body {
+  text-align: center;
+  font-size: 13px;
+}
+
+.car-type {
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+
+.car-number {
+  font-size: 16px;
+  font-weight: bold;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>7070系</h1>
+<div class="subtitle">ー 無料車 ー</div>
+
+<div class="direction">←尾羽原　　高徳→</div>
+
+<!-- 基本情報 -->
+<div class="section-title">基本情報</div>
+<div class="spec-box">
+  <ul>
+    <li><b>運用者</b><br>尾羽急電鉄</li>
+    <li><b>製造所</b><br>不明</li>
+    <li><b>製造年</b><br>2025年?</li>
+    <li><b>運用開始</b><br>2025年3月26日</li>
+  </ul>
+</div>
+
+<!-- 共通仕様 -->
+<div class="section-title">共通仕様</div>
+<div class="spec-box">
+  <ul>
+    <li>2両編成</li>
+    <li>乗客固定：×</li>
+    <li>自動放送：×</li>
+    <li>車掌乗務：▲</li>
+    <li>ブザー：〇</li>
+    <li>ドアカット：×</li>
+    <li>運転士交代：×</li>
+  </ul>
+</div>
+
+<!-- 編成 -->
+<div class="section-title">編成</div>
+<div class="direction">尾羽原 ←　→ 高徳</div>
+
+<div class="train">
+
+  <!-- 7071（先頭） -->
+  <div class="car">
+    <div class="car-top"></div>
+    <div class="car-body">
+      <div class="car-type">Tc</div>
+      <div class="car-number">7071</div>
+    </div>
+  </div>
+
+  <!-- 7071（後ろ・パンタあり） -->
+  <div class="car">
+    <div class="car-top"><div class="panta"></div></div>
+    <div class="car-body">
+      <div class="car-type">M</div>
+      <div class="car-number">7071</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
