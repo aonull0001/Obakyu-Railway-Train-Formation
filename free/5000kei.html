@@ -41,33 +41,6 @@ h1 {
   align-items: center;
 }
 
-/* ▼ 開閉アイコン */
-.toggle-icon {
-  font-size: 20px;
-  cursor: pointer;
-  margin-left: 10px;
-  user-select: none;
-  transition: transform 0.3s ease;
-}
-
-/* ▼ 左→下へ滑らかに展開するアニメーション */
-.spec-box-collapsible {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateX(-20px);
-  transition:
-    max-height 0.5s ease,
-    opacity 0.4s ease,
-    transform 0.4s ease;
-}
-
-.spec-box-collapsible.open {
-  max-height: 1000px;
-  opacity: 1;
-  transform: translateX(0);
-}
-
 /* ▼ ボックス共通 */
 .spec-box {
   background: #fff;
@@ -78,13 +51,11 @@ h1 {
   border-radius: 6px;
 }
 
-/* ▼ リストの黒丸を消す＋左寄せ */
 .spec-box ul {
   list-style: none;
   padding-left: 5px;
 }
 
-/* ▼ 各項目の先頭に "> " を付ける */
 .spec-box ul li::before {
   content: "> ";
   font-weight: bold;
@@ -104,7 +75,7 @@ h1 {
 }
 
 .train-list-collapsible.open {
-  max-height: 99999px; /* ← 無制限にして全編成表示OK */
+  max-height: 99999px;
   opacity: 1;
   transform: translateY(0);
 }
@@ -128,6 +99,7 @@ h1 {
   background: #f5f5f5;
 }
 
+/* ▼ 編成図 */
 .train {
   display: flex;
   gap: 12px;
@@ -221,15 +193,6 @@ h1 {
 <div id="train-list" class="train-list-collapsible"></div>
 
 <script>
-// ▼ 主要諸元の開閉
-const toggle = document.getElementById("spec-toggle");
-const box = document.getElementById("spec-box");
-
-toggle.addEventListener("click", () => {
-  box.classList.toggle("open");
-  toggle.textContent = box.classList.contains("open") ? "▼" : "▶";
-});
-
 // ▼ 編成HTML生成関数
 function createTrainHTML(f, n) {
   return `
@@ -276,7 +239,7 @@ function createTrainHTML(f, n) {
 const container = document.getElementById("train-container");
 container.insertAdjacentHTML("beforeend", createTrainHTML("01", "01"));
 
-// ▼ 02F〜50F を隠し領域に生成
+// ▼ 02F〜50F を生成
 const list = document.getElementById("train-list");
 for (let i = 2; i <= 50; i++) {
   let f = String(i).padStart(2, "0");
@@ -299,4 +262,3 @@ btn.addEventListener("click", () => {
 
 </body>
 </html>
-
