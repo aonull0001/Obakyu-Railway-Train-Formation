@@ -41,33 +41,6 @@ h1 {
   align-items: center;
 }
 
-/* ▼ 開閉アイコン */
-.toggle-icon {
-  font-size: 20px;
-  cursor: pointer;
-  margin-left: 10px;
-  user-select: none;
-  transition: transform 0.3s ease;
-}
-
-/* ▼ 左→下へ滑らかに展開するアニメーション */
-.spec-box-collapsible {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateX(-20px);
-  transition:
-    max-height 0.5s ease,
-    opacity 0.4s ease,
-    transform 0.4s ease;
-}
-
-.spec-box-collapsible.open {
-  max-height: 1000px;
-  opacity: 1;
-  transform: translateX(0);
-}
-
 /* ▼ ボックス共通 */
 .spec-box {
   background: #fff;
@@ -78,13 +51,11 @@ h1 {
   border-radius: 6px;
 }
 
-/* ▼ リストの黒丸を消す＋左寄せ */
 .spec-box ul {
   list-style: none;
   padding-left: 5px;
 }
 
-/* ▼ 各項目の先頭に "> " を付ける */
 .spec-box ul li::before {
   content: "> ";
   font-weight: bold;
@@ -224,22 +195,24 @@ h1 {
 <div id="train-list" class="train-list-collapsible"></div>
 
 <script>
-// ▼ 編成HTML生成関数（2両版）
+// ▼ 編成HTML生成関数（パンタは 272X 側）
 function createTrainHTML(a, b) {
   return `
     <div class="section-title">${a}-${b}</div>
     <div class="train">
 
+      <!-- 212X（先頭・パンタなし） -->
       <div class="car">
-        <div class="car-top"><div class="panta"></div></div>
+        <div class="car-top"></div>
         <div class="car-body">
           <div class="car-type">Tc</div>
           <div class="car-number">${a}</div>
         </div>
       </div>
 
+      <!-- 272X（後ろ・パンタあり） -->
       <div class="car">
-        <div class="car-top"></div>
+        <div class="car-top"><div class="panta"></div></div>
         <div class="car-body">
           <div class="car-type">M</div>
           <div class="car-number">${b}</div>
