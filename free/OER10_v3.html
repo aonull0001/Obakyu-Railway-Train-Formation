@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>OER-10型（v3） 編成一覧</title>
+
+<style>
+body {
+  font-family: Zen Maru Gothic;
+  background: #f0f0f0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 32px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.direction {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.section-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  border-left: 6px solid #333;
+  padding-left: 10px;
+}
+
+/* ▼ ボックス */
+.spec-box {
+  background: #fff;
+  border: 2px solid #333;
+  padding: 15px;
+  width: 350px;
+  margin: 0 auto 30px auto;
+  border-radius: 6px;
+}
+
+.spec-box ul {
+  list-style: none;
+  padding-left: 5px;
+}
+
+.spec-box ul li::before {
+  content: "> ";
+  font-weight: bold;
+  color: #333;
+}
+
+/* ▼ 編成図 */
+.train {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.car {
+  width: 120px;
+  height: 140px;
+  border: 2px solid #333;
+  border-radius: 6px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.car-top {
+  height: 25px;
+  position: relative;
+}
+
+.panta {
+  width: 25px;
+  height: 10px;
+  background: #bbb;
+  position: absolute;
+  right: 6px;
+  top: 6px;
+}
+
+.car-body {
+  text-align: center;
+  font-size: 13px;
+}
+
+.car-type {
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+
+.car-number {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* ▼ 折りたたみ */
+.train-list-collapsible {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition:
+    max-height 0.6s ease,
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+.train-list-collapsible.open {
+  max-height: 99999px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.show-all-btn {
+  display: block;
+  width: 200px;
+  margin: 20px auto;
+  padding: 10px 0;
+  text-align: center;
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background 0.2s;
+}
+
+.show-all-btn:hover {
+  background: #f5f5f5;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>OER-10型（v3）</h1>
+<div class="subtitle">ー 無料車 ー</div>
+
+<div class="direction">←尾羽原　　高徳→</div>
+
+<!-- 基本情報 -->
+<div class="section-title">基本情報</div>
+<div class="spec-box">
+  <ul>
+    <li><b>運用者</b><br>尾羽急電鉄</li>
+    <li><b>製造所</b><br>KYOUSAGE TRANSPORT ENGINEERING COMPANY [K-TREC]</li>
+    <li><b>製造年</b><br>2025年〜</li>
+    <li><b>運用開始</b><br>2026年02月04日</li>
+  </ul>
+</div>
+
+<!-- 共通仕様 -->
+<div class="section-title">共通仕様</div>
+<div class="spec-box">
+  <ul>
+    <li>乗客固定：×</li>
+    <li>自動放送：×</li>
+    <li>車掌乗務：〇</li>
+    <li>ブザー：〇</li>
+    <li>ドアカット：×</li>
+    <li>運転士交代：〇</li>
+  </ul>
+</div>
+
+<!-- ▼ N-01（最初に表示） -->
+<div class="section-title">N-01 編成</div>
+<div class="train">
+  <div class="car">
+    <div class="car-top"></div>
+    <div class="car-body"><div class="car-type">Tc</div><div class="car-number">N011</div></div>
+  </div>
+
+  <div class="car">
+    <div class="car-top"><div class="panta"></div></div>
+    <div class="car-body"><div class="car-type">M</div><div class="car-number">N012</div></div>
+  </div>
+
+  <div class="car">
+    <div class="car-top"></div>
+    <div class="car-body"><div class="car-type">T</div><div class="car-number">N013</div></div>
+  </div>
+</div>
+
+<!-- ▼ 全編成ボタン -->
+<div id="show-all-btn" class="show-all-btn">▼ 全編成を表示</div>
+
+<!-- ▼ 折りたたみ領域 -->
+<div id="train-list" class="train-list-collapsible"></div>
+
+<script>
+const list = document.getElementById("train-list");
+
+// ▼ N-02〜N-25 を自動生成
+for (let i = 2; i <= 25; i++) {
+  const num = String(i).padStart(2, "0");
+
+  list.insertAdjacentHTML("beforeend", `
+    <div class="section-title">N-${num} 編成</div>
+    <div class="train">
+
+      <div class="car">
+        <div class="car-top"></div>
+        <div class="car-body">
+          <div class="car-type">Tc</div>
+          <div class="car-number">N${num}1</div>
+        </div>
+      </div>
+
+      <div class="car">
+        <div class="car-top"><div class="panta"></div></div>
+        <div class="car-body">
+          <div class="car-type">M</div>
+          <div class="car-number">N${num}2</div>
+        </div>
+      </div>
+
+      <div class="car">
+        <div class="car-top"></div>
+        <div class="car-body">
+          <div class="car-type">T</div>
+          <div class="car-number">N${num}3</div>
+        </div>
+      </div>
+
+    </div>
+  `);
+}
+
+// ▼ ボタンで開閉
+const btn = document.getElementById("show-all-btn");
+btn.addEventListener("click", () => {
+  list.classList.toggle("open");
+  btn.textContent = list.classList.contains("open")
+    ? "▲ 全編成を隠す"
+    : "▼ 全編成を表示";
+});
+</script>
+
+</body>
+</html>
