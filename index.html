@@ -106,6 +106,33 @@ body {
   font-weight: bold;
 }
 
+/* ▼ 配線図リンク（仮） */
+.diagram-menu {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.diagram-menu a {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  background: #fff;
+  transition: 0.25s;
+}
+
+.diagram-menu a:hover {
+  background: #f0f0f0;
+  transform: translateY(-3px);
+  color: #0078ff;
+}
+
+
 /* ▼ 車両一覧（下からスライド） */
 .train-list {
   width: 90%;
@@ -833,6 +860,7 @@ document.getElementById("back-button").addEventListener("click", () => {
 
 </body>
 </html>
+
 
 
 
