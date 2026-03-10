@@ -66,6 +66,99 @@ body {
   font-size: 18px;
   font-weight: bold;
 }
+
+/* ▼ 尾羽原駅（2面5線）構内図 ------------------------- */
+
+.obq-yard-station {
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 40px 0;
+}
+
+.obq-yard-station .station-name {
+  margin-left: 0;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* 外枠 */
+.obq-yard-wrapper {
+  width: 100%;
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 12px;
+  padding: 20px 20px;
+  margin-left: -40px; /* 縦線と位置合わせ */
+}
+
+/* 行（線路1本） */
+.obq-track-row {
+  display: flex;
+  align-items: center;
+  margin: 18px 0;
+}
+
+/* 番線ラベル */
+.obq-track-label {
+  width: 90px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: right;
+  padding-right: 15px;
+}
+
+.obq-sub {
+  font-size: 12px;
+  color: #666;
+}
+
+/* 線路 */
+.obq-track {
+  height: 6px;
+  border-radius: 3px;
+  flex-grow: 1;
+}
+
+/* 本線 */
+.obq-main-track {
+  background: #222;
+}
+
+/* 留置線 */
+.obq-siding-track {
+  background: #777;
+}
+
+/* ホーム（2面） */
+.obq-yard {
+  position: relative;
+}
+
+.obq-yard::before {
+  content: "";
+  position: absolute;
+  left: 90px;
+  top: 35px;
+  width: calc(100% - 120px);
+  height: 16px;
+  background: #f7f7f7;
+  border: 2px solid #aaa;
+  border-radius: 6px;
+}
+
+.obq-yard::after {
+  content: "";
+  position: absolute;
+  left: 90px;
+  top: 150px;
+  width: calc(100% - 120px);
+  height: 16px;
+  background: #f7f7f7;
+  border: 2px solid #aaa;
+  border-radius: 6px;
+}
+
 </style>
 
 </head>
@@ -76,11 +169,43 @@ body {
 <div class="diagram-track-wrapper">
   <div class="diagram-track">
 
-    <div class="station">
-      <div class="track-node"></div>
+    <!-- ▼ 尾羽原駅（2面5線） -->
+    <div class="station obq-yard-station">
       <div class="station-name">尾羽原</div>
+
+      <div class="obq-yard-wrapper">
+        <div class="obq-yard">
+
+          <div class="obq-track-row">
+            <div class="obq-track-label">5番線</div>
+            <div class="obq-track obq-main-track"></div>
+          </div>
+
+          <div class="obq-track-row">
+            <div class="obq-track-label">4番線</div>
+            <div class="obq-track obq-main-track"></div>
+          </div>
+
+          <div class="obq-track-row">
+            <div class="obq-track-label">3番線<br><span class="obq-sub">（留置）</span></div>
+            <div class="obq-track obq-siding-track"></div>
+          </div>
+
+          <div class="obq-track-row">
+            <div class="obq-track-label">2番線</div>
+            <div class="obq-track obq-main-track"></div>
+          </div>
+
+          <div class="obq-track-row">
+            <div class="obq-track-label">1番線</div>
+            <div class="obq-track obq-main-track"></div>
+          </div>
+
+        </div>
+      </div>
     </div>
 
+    <!-- ▼ 通常の駅たち -->
     <div class="station">
       <div class="track-node"></div>
       <div class="station-name">A</div>
@@ -106,4 +231,3 @@ body {
 
 </body>
 </html>
-
