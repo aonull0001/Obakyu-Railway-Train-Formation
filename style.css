@@ -153,94 +153,134 @@ h2 {
 
 
 
-/* ▼ 尾羽原駅構内を縦線の途中に挿入するための調整 */
-.obq-yard-station {
+/* ▼ 全体 */
+.diagram-wrapper {
+  width: 100%;
+  max-width: 1100px;
+  margin: 40px auto;
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 12px;
+  padding: 40px;
+}
+
+/* ▼ 複線本線 */
+.double-track {
+  display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  margin: 40px 0;
+  gap: 40px;
+  margin: 50px 0;
 }
 
-.obq-yard-station .station-name {
-  margin-left: 0;
-  font-size: 20px;
+.track-block {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.line {
+  flex-grow: 1;
+  height: 6px;
+  background: #333;
+}
+
+.node {
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border: 3px solid #333;
+  border-radius: 50%;
+}
+
+.label {
+  font-size: 18px;
   font-weight: bold;
-  margin-bottom: 15px;
 }
 
-/* ▼ 駅構内図 外枠 */
-.obq-yard-wrapper {
+/* ▼ 尾羽原駅（終端・2面5線） */
+.yard-wrapper {
   width: 100%;
   background: #fff;
   border: 2px solid #333;
   border-radius: 12px;
-  padding: 20px 20px;
-  margin-left: -40px; /* 縦線の位置に合わせて調整 */
+  padding: 30px;
 }
 
-/* ▼ 駅構内の行（1本の線） */
-.obq-track-row {
+.yard-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.yard {
+  position: relative;
+  padding: 60px 0;
+}
+
+/* ▼ ホーム（上下2面） */
+.platform {
+  position: absolute;
+  left: 160px;
+  width: calc(100% - 200px);
+  height: 20px;
+  background: #f7f7f7;
+  border: 2px solid #aaa;
+  border-radius: 6px;
+}
+
+.platform-top {
+  top: 20px;
+}
+
+.platform-bottom {
+  bottom: 20px;
+}
+
+/* ▼ 線路群 */
+.tracks {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.track-row {
   display: flex;
   align-items: center;
-  margin: 18px 0;
 }
 
-/* ▼ 番線ラベル */
-.obq-track-label {
-  width: 90px;
-  font-size: 16px;
-  font-weight: bold;
+.track-label {
+  width: 140px;
   text-align: right;
-  padding-right: 15px;
+  padding-right: 20px;
+  font-size: 18px;
+  font-weight: bold;
 }
 
-.obq-sub {
+.sub {
   font-size: 12px;
   color: #666;
 }
 
-/* ▼ 線路（横線） */
-.obq-track {
+.track {
   height: 6px;
-  border-radius: 3px;
   flex-grow: 1;
-  position: relative;
+  border-radius: 3px;
 }
 
-/* ▼ 本線（太め） */
-.obq-main-track {
+.track-main {
   background: #222;
 }
 
-/* ▼ 留置線（薄め） */
-.obq-siding-track {
+.track-siding {
   background: #777;
 }
 
-/* ▼ ホーム（2面） */
-.obq-yard {
-  position: relative;
-}
-
-.obq-yard::before {
-  content: "";
-  position: absolute;
-  left: 90px;
-  top: 35px;
-  width: calc(100% - 120px);
-  height: 16px;
-  background: #f7f7f7;
-  border: 2px solid #aaa;
-  border-radius: 6px;
-}
-
-.obq-yard::after {
-  content: "";
-  position: absolute;
-  left: 90px;
-  top: 150px;
-  width: calc(100% - 120px);
-  height: 16px;
-  background: #f7f7f7;
-  border: 2px solid #aaa;
-  border-radius: 6px;
+/* ▼ 終端（車止め） */
+.buffer {
+  width: 22px;
+  height: 22px;
+  background: #c00;
+  border: 3px solid #600;
+  border-radius: 4px;
+  margin-left: 10px;
 }
